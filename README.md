@@ -8,7 +8,11 @@ The back-end is purely based on django and AI powered image similarity feature w
 The front-end is purely based on HTML and Bootstrap
 
 Our Team & contributions
+
 Pratham Agarwal --> Backend Developer
+
 Pranjal Gautam --> Front-end Developer/Video editor
+
 Ujjwal Sharma --> Front-end Developer
+
 Yusuf Topiwala --> Front-end Developer
