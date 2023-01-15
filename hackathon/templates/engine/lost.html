@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %} About {% endblock title %}
+{% block aboutactive %} active {% endblock aboutactive %}
+
+{% block body %}
+<div class="container">
+  <div class="jumbotron my-3">
+    <div class="container" style="background-color:#20ec20; padding: 1% 1%;">
+      <h1 class="display-4">A matching item was found</h1>
+    </div>
+    <hr class="my-4">
+
+    <div class="container" style="text-align: center; background-color: #242424; padding:1% 1%;">
+      <p style="border: 2px solid #242424; font-size: 150%; background-color: #d5d5d5;">Details of the user.</p>
+      <p style="border: 2px solid #242424; font-size: 150%; background-color: #d5d5d5;">Email | {{ p1.email }}</p>
+      <p style="border: 2px solid #242424; font-size: 150%; background-color: #d5d5d5;">Name | {{ p1.name }}</p>
+      <img src='/media/{{ p1.image }}' class="card-img-top" alt="...">
+    </div>
+
+
+    <div class="container" style="align-items: center; justify-content: center; text-align: center;">
+      <button type="button" class="btn btn-success mr-2" data-bs-toggle="modal" data-bs-target="#search"
+        style="background-color: red; color: white; padding: 0% 1%; height: 50px;">
+        No it is not mine
+      </button>
+      <a class="btn btn-primary btn-lg" href="/engine/search/email-lost/{{ p1.sno }}" role="button"
+        style="background-color: green; color: white; padding-top: 10px; height: 50px;">Inform</a>
+    </div>
+
+
+    <div class="modal fade" id="search" tabindex="-1" aria-labelledby="search" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="loginmodal">Upload your lost item</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="/engine/force/" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {% comment %} <div class="mb-3">
+                <label for="user" class="form-label">User Name</label>
+                <input type="text" name="loginuser" class="form-control" id="loginuser" placeholder="name_123" required>
+              </div> {% endcomment %}
+
+              <div class="mb-3">
+                <label for="image" class="form-label">Upload Image here</label>
+                <input type="file" id="img" name="img" default="/media/{{ p1.image }}">
+              </div>
+              <div class="mb-3">
+                <label for="text" class="form-label">Add item</label>
+                <input type="text" id="ite" name="ite" default="{{p1.itemname}}">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Enter email</label>
+                <input type="email" id="emal" name="emal" default={{p1.email}}>
+              </div>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+          </form>
+
+
+
+        </div>
+      </div>
+      
+
+
+        {% endblock body %}

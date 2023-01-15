@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Lost and Found Home</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-WJUUqfoMmnfkBLne5uxXj+na/c7sesSJ32gI7GfCk4zO4GthUKhSEGyvQ839BC51" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="stylehome.css">
+  <style>
+    .container{
+        justify-content: center;
+        align-items: center;
+        padding: 5% 5%;
+        background-color: rgba(255,255,255,0.8);
+    }
+    .accordion{
+        color: #242424;
+        background-color: #d5d5d5;
+    }
+    @media (min-width:768px){
+        .container{
+            width:60%;
+        }
+    }
+    .navbar-brand{
+        font-size: 150%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #242424;
+        background-color: #d5d5d5;
+    }
+    .navbar-expand-lg{
+        background-color: #d5d5d5;
+    }
+    .nav-link{
+        margin-right: 16px;
+        font-size: 125%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #242424;
+        background-color: #d5d5d5;
+    }
+    .nav-link:hover{
+        background-color: black;
+        color: #d5d5d5;
+    }
+    .nav-link:active{
+        background-color: black;
+        color:#ff0000;
+    }
+    .col {
+        background-color: #d5d5d5;
+        padding:32px 16px;
+    }
+    .heading{
+        text-align: center;
+        font-size: 100%;
+        color: black;
+        text-align: center;
+    }
+    .details{
+        font-size: 80%;
+        color: #242424;
+        text-align: center;
+    }
+    .masthead{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: black;
+        background-size: cover ;
+        min-height: 100vh;
+    }
+    .color-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color:rgba(0,0,0,0.2);
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    .container{
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        max-width: 50%;
+        height: 70%;
+        background-color:rgba(255,255,255,1);
+        display: flex;
+        margin-top: 4%;
+    }
+    .section1{
+        width: 60%;
+        margin-left: 50px;
+    }
+    .section2{
+        width:75%;
+    }
+    .section2 > img{
+        width : 100%;
+        height: 100%;
+        margin : 10px 0px 0px 8px;
+    }
+    #button{
+        font-size: 125%;
+        border: none;
+        background-color: #f00;
+        width: 110px;
+        border-radius: 5px;
+        padding:2%;
+        color: white;
+        margin-top: 15px;
+    }
+    #button:hover{
+        background-color: #242424;
+        color: red;
+    }
+    .ac  a{
+        text-decoration: none;
+        color: red;
+        
+    }
+    .section1 p{
+        font-size: 125%;
+    }
+    @media (max-width: 768px){
+        .container{
+            max-width:100%;
+        }
+    }
+    .navbar-brand{
+        font-size: 150%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #242424;
+        background-color: white;
+    }
+    .navbar-expand-lg{
+        background-color: #d5d5d5;
+    }
+    .nav-link{
+        margin-right: 16px;
+        font-size: 125%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #242424;
+        background-color: #d5d5d5;
+    }
+    .nav-link:hover{
+        background-color: black;
+        color: #d5d5d5;
+    }
+    .nav-link:active{
+        background-color: black;
+        color:#ff0000;
+    }
+    .col {
+        background-color: #d5d5d5;
+        padding:32px 16px;
+    }
+    .heading{
+        text-align: center;
+        font-size: 150%;
+        color: black;
+        text-align: center;
+    }
+    .details{
+        font-size: 100%;
+        color: #242424;
+        text-align: center;
+    }
+    .masthead{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: black;
+        background-size: cover ;
+        min-height: 150vh;
+        text-shadow: 4px 4px 4px #d5d5d5;
+    }
+    .color-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color:rgba(0,0,0,0.2);
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    .container{
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        max-width: 50%;
+        height: 110%;
+        background-color:white;
+        display: flex;
+        margin-top: 20%;
+    }
+    .section1{
+        width: 100%;
+        margin-left: 50px;
+    }
+    .section2{
+        width:80%;
+    }
+    .section2 > img{
+        width : 100%;
+        height: 100%;
+        margin : 10px 0px 0px 8px;
+    }
+    #button{
+        font-size: 125%;
+        border: none;
+        background-color: #f00;
+        width: 110px;
+        border-radius: 5px;
+        padding:2%;
+        color: white;
+        margin-top: 15px;
+    }
+    #button:hover{
+        background-color: #242424;
+        color: red;
+    }
+    .ac  a{
+        text-decoration: none;
+        color: red;
+        
+    }
+    .section1 p{
+        font-size: 125%;
+    }
+    @media (max-width: 768px){
+        .container{
+            max-width:100%;
+        }
+    }
+    .img-preview{
+        display: none; 
+        width: 100px;   
+        border: 2px dashed #333;  
+        margin-bottom: 20px;
+    }
+    .img-preview__image{
+        width:100%;
+        display: none;
+    }
+    [type="file"] {
+    height: 0;  
+    width: 0;
+    overflow: hidden;
+    }
+    [type="file"] + label {
+    margin-top: 1%;
+    font-family: sans-serif;
+    background: #f44336;
+    padding: 10px 30px;
+    border: 2px solid #f44336;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+    }
+    [type="file"] + label:hover {
+    background-color: #fff;
+    color: #f44336;
+    }
+    .page-container{
+        padding: 5% 5%;
+        background-color: rgba(0,0,0,0.5);
+        border-color: #d5d5d5;
+        border-style: solid;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .page-container p{
+        margin-top: 10%;
+        font-size: 150%;
+        color: #d5d5d5;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .coloring{
+        background-color: #d5d5d5;
+        color: #242424;
+    }
+    .btn{
+        border:2px solid  #242424;
+        background-color: #d5d5d5;
+        color: #242424;
+        border: none;
+        cursor: pointer;
+        padding: 10px 10px;
+    }
+    .btn:hover{
+        background-color: black;
+        color: #d5d5d5;
+    }
+    .modal-title{
+        margin-right: 33%;
+    }
+    .modal-header{
+        background-color: #242424;
+        color: #d5d5d5;
+    }
+    .modal-footer{
+        background-color: #242424;
+        color: #d5d5d5;
+    }
+    @media (max-width: 768px){
+        .page-container{
+            width:100%;
+        }
+        .modal-title{
+            margin-right: 5%;
+        }
+    }
+    .floatingblock{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255,255,255,0.9);
+        color: #242424;
+        margin-top: 5%;
+        height: 70%;
+        width: 60%;
+    }
+    @media (max-width: 768px){
+        .floatingblock{
+            width: 100%;
+        }   
+    }
+</style>
+</head>
+
+<body>
+
+  <!-- Navbar-->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        {% load static %}
+      <img src="{% static 'home/anotherlogo4.png' %}" alt="Lost and Found" class="fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About Us</a>
+          </li>
+          
+          
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="/upload">Upload</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Hi {{ request.user }}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/logout/">Logout</a></li>
+              
+            </ul>
+          </li>
+          
+
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="loginpage.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signup.html">Sign Up</a>
+          </li>
+
+
+          {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  {% for message in messages %}
+
+
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message :</strong> {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+
+
+
+  {% block body %}
+  {% endblock body %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="col">
+          <h4 class="heading">Made with Love, Hardwork and Caffeine(With a pinch of Stack Overflow)</h4>
+          <p class="details">@Team-1000101</p>
+        </div>
+        <div class="col">
+          <h1 class="heading">Contact Us</h1>
+          <p class="details">Search_party@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+
+  <!-- End Example Code -->
+</body>
+
+</html>

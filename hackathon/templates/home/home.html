@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+
+{% block title %} Home  {% endblock title %}
+{% block homeactive %} active {% endblock homeactive %}
+
+{% block body %}
+
+  <div class="jumbotron my-0" style="text-align:center;">
+    {% if user.is_authenticated  %}
+    <h1 class="display-4" style="font-family: 'Roboto Mono', monospace;">Welcome {{ request.user }}</h1>
+    <hr class="my-4">
+  
+  {% comment %} <a href="engine/add" class="btn btn-success" role="button" aria-disabled="true">Add lost item</a>
+<a href="engine/search" class="btn btn-danger" role="button" aria-disabled="true">Search for lost item</a> {% endcomment %}
+
+
+
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#find" style="
+margin: 4px; color:white; background-color:#f00; border-color:#d5d5d5;
+">Add a found Item</button>
+<button type="button" class="btn btn-danger mr-2" data-bs-toggle="modal" data-bs-target="#search" style="
+margin: 4px; color:white; background-color:blue; border-color:blue;
+">
+  Search for lost item
+</button>
+
+    </div>
+  </div>
+  <div class="modal fade" id="find" tabindex="-1" aria-labelledby="find" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#d5d5d5">
+          <h1 class="modal-title fs-5" id="loginmodal" style="color:#242424">Upload a picture of the found item</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/engine/add/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+          {% comment %} <div class="mb-3">
+            <label for="user" class="form-label">User Name</label>
+            <input type="text" name="loginuser" class="form-control" id="loginuser" placeholder="name_123"required>
+          </div> {% endcomment %}
+
+          
+          <div class="mb-3" style="text-align:center;">
+            <label for="text" class="form-label">Add item</label>
+            <br>
+            <input type="text" id="item" name="item">
+          </div>
+          <hr>
+          <div class="mb-3" style="text-align:center;">
+            <label for="email" class="form-label">Enter email</label>
+            <br>
+            <input type="email" id="email" name="email">
+          </div>
+          <hr>
+          <div class="mb-3" style="text-align:center;">
+            <label for="image" class="form-label">Upload Image here</label>
+            <br>
+            <input type="file" id="image" name="image" style="margin-left:20%;">
+          </div>
+
+        </div>
+        <div class="modal-footer" style="background-color:#d5d5d5;">
+          <button type="button" class="btn" data-bs-dismiss="modal" style="background-color:#d5d5d5; color:black;">Close</button>
+          <button type="submit" class="btn" style="background-color:red; color:white;">Save changes</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="search" tabindex="-1" aria-labelledby="search" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#d5d5d5">
+          <h1 class="modal-title fs-5" id="loginmodal" style="color:#242424">Search for lost item</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/engine/search/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+          {% comment %} <div class="mb-3">
+            <label for="user" class="form-label">User Name</label>
+            <input type="text" name="loginuser" class="form-control" id="loginuser" placeholder="name_123"required>
+          </div> {% endcomment %}
+
+          
+          <div class="mb-3" style="text-align:center;">
+            <label for="text" class="form-label">Add item</label>
+            <br>
+            <input type="text" id="ite" name="ite">
+          </div>
+          <hr>
+          <div class="mb-3" style="text-align:center;">
+            <label for="email" class="form-label">Enter email</label>
+            <br>
+            <input type="email" id="emal" name="emal">
+          </div>
+          <hr>
+          <div class="mb-3" style="text-align:center;">
+            <label for="image" class="form-label">Upload Image here</label>
+            <br>
+            <input type="file" id="img" name="img" style="margin-left:20%;">
+          </div>
+
+
+        </div>
+        <div class="modal-footer" style="background-color:#d5d5d5;">
+          <button type="button" class="btn" data-bs-dismiss="modal" style="background-color:#d5d5d5; color:black;">Close</button>
+          <button type="submit" class="btn" style="background-color:red; color:white;">Save changes</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  
+{% else %}
+  <div class="container-fluid" style="text-align:center; background-color:#d5d5d5; color:black ; padding:0;margin:0;font-family: 'Roboto Mono', monospace; padding:1% 0%;">
+    <h1>Welcome to the future</h1>
+  
+  
+  </div>
+  {% endif %}
+  
+  <div class="container-fluid" style="padding:2% 0%;">
+    <div class="row" style="padding:0% 10%;display:flex; justify-content:space-between;">
+      <div class="col" style="background-color:#d5d5d5; text-align:center; border-style:solid; padding:10% 10%;">
+        <h1>What our model does</h1>
+        <p style="font-size:115%;">Our Machine Learning Based model is used to find similarities in two different pictures and alert the user of any potential matches</p>
+      </div>
+      <div class="col" style="background-color:#d5d5d5; text-align:center; border-style:solid; padding:10% 10%;">
+        <h1>What is its use</h1>
+        <p style="font-size:115%;">We use this model for an AI based Lost and Found website for helping students who have lost their valuables.</p>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="container-fluid" style="max-width:100%; padding:0% 10%;">
+      <div class="color-overlay d-flex justify-content-center align-items-center">
+        <div class="container" style="margin-bottom:2%;">
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style=" background-color: #d5d5d5;border:2px solid #242424; font-size: 60%;">
+                  Step 1
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body" style="font-size: 160;">Login/Sign-up = To get notified about your missing/found item login by clicking the <code>Login</code> button on the top. New User? <code>Sign up</code>!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" style=" background-color: #d5d5d5;border:2px solid #242424; font-size: 60%;">
+                  Step 2
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body" style="font-size: 160;">Lost Something? = Click the lost button on the top and fill the form. The AI will show you the most similar
+                  image from our database. If it is yours we will notify the finder via E-Mail. 
+                  In case it is not yours, we will notify you via E-Mail if a suitable match is found.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree" style=" background-color: #d5d5d5;border:2px solid #242424; font-size: 60%;">
+                  Step 3
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body" style="font-size: 160;">Found Something? = Click the found button on the top and fill the form. The AI will show you the most matching image from our
+                  database. If it matches we will notify the claimant via an E-Mail. In case it is not what you uploaded, we will notify you via
+                  E-Mail if a claimant is found.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+{% endblock body %}
