@@ -7,8 +7,8 @@ from DeepImageSearch import Index,LoadData,SearchImage
 import os
 import smtplib
 from email.mime.text import MIMEText
-email_sender = "officialap1812@gmail.com"
-email_password = "tsfxvccdminnpcku"
+email_sender = "email"
+email_password = "password"
 
 
 def send_email(subject, body, sender, recipients, password):
